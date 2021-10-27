@@ -1,0 +1,105 @@
+.home {
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary_background;
+  .title-container {
+    position: relative;
+    padding: 2rem 2rem 0 2rem;
+    cursor: default;
+    .text {
+      position: relative;
+    }
+    .title {
+      -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+      font-size: 700%;
+      color: $primary_light;
+      font-weight: 900;
+      font-style: italic;
+      -webkit-text-stroke: 3px $primary_background;
+      z-index: 3;
+      position: relative;
+      &_before {
+        position: absolute;
+        top: .5rem;
+        left: -.5rem;
+        color: transparent;
+        -webkit-text-stroke: 1px $mute_highlight;
+        z-index: 1;
+      }
+      &_after {
+        position: absolute;
+        top: 1rem;
+        left: -1rem;
+        color: transparent;
+        -webkit-text-stroke: 1px $gray;
+        z-index: 0;
+      }
+  }
+  }
+  .inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    .input {
+      margin: 0 .5rem;
+      .input-name, .input-id { 
+        margin: 0; 
+        padding: .5rem 1rem;
+        border-radius: .25rem;
+        outline: none;
+        border: 1px solid transparent;
+        transition: .3s;
+        width: 100%;
+        &:focus, &:active {
+          border: 1px solid $primary_light;
+        }
+      }
+      label {
+        display: block;
+        margin-top: .5rem;
+        margin-bottom: .15rem;
+        color: $primary_light;
+      }
+    }
+  }
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    .btn {
+      padding: .5rem 1rem;
+      width: 100%;
+      outline: none;
+      border: none;
+      border-radius: .25rem;
+      background-color: $primary_light;
+      font-size: 1rem;
+      font-weight: 600;
+      color: $primary_background;
+      cursor: pointer;
+      transition: .3s;
+      &.disabled {
+        background-color: $gray_light;
+        pointer-events: none;
+      }
+      &:hover {
+        background-color: $primary_regular;
+      }
+    }
+  }
+}

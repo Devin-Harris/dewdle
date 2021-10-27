@@ -1,0 +1,20 @@
+.player-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 70px);
+  grid-gap: .5rem;
+  text-align: center;
+  .player_icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+      max-width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: max-content;
+      font-size: .9rem;
+    }
+  }
+}

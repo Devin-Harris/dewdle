@@ -1,0 +1,255 @@
+.game-gui {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 50vw;
+  max-width: 100vw;
+  min-height: 60vh;
+
+  .choosing-word, .showing-scores, .new-round {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba($gray, .9);
+    color: white;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .choosing-word {
+    font-size: 1.2rem;
+    font-weight: 500;
+    .word-choices {
+      width: 100%;
+      max-width: 25rem;
+      text-align: center;
+      .words {
+        margin-top: .25rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
+        .word {
+          padding: .5rem 1rem;
+          outline: none;
+          border: none;
+          border-radius: .25rem;
+          background-color: $primary_background;
+          font-size: 1rem;
+          font-weight: 600;
+          color: white;
+          cursor: pointer;
+          transition: .3s;
+          &.disabled {
+            background-color: $gray_light;
+            pointer-events: none;
+          }
+          &:hover {
+            background-color: $primary_dark;
+          }
+        }
+      }
+    }
+  }
+
+  .new-round {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .showing-scores {
+    font-size: 1.2rem;
+    font-weight: 500;
+    flex-direction: column;
+    .game-over-header {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .scores {
+      margin-top: .25rem;
+      .score {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: .5rem 1rem;
+        font-weight: 600;
+        &_text {
+          margin-left: .5rem;
+          font-size: 1.25rem;
+          &_name {
+            font-weight: 400;
+            line-height: 1;
+          }
+          &_number {
+            line-height: 1;
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: $green;
+            &.plain {
+              color: white;
+            }
+            &.subtracting {
+              color: $red;
+            }
+          }
+        }
+      }
+    }
+    .btn {
+      padding: .5rem 1rem;
+      width: max-content;
+      outline: none;
+      border: none;
+      border-radius: .25rem;
+      background-color: $primary_background;
+      color: white;
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .3s;
+      margin: 1rem 0;
+      &.disabled {
+        background-color: $gray_light;
+        pointer-events: none;
+      }
+      &:hover {
+        background-color: $primary_dark;
+      }
+    }
+  }
+
+  &_scores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &_score {
+      position: relative;
+      margin: 0 .5rem;
+      &_avatar {
+        border: 1px solid transparent;
+        &.correct {
+          border-color: $mute_highlight;
+        }
+      }
+      &:nth-child(1) {
+        .game-gui_scores_score_number {
+          background-color: $mute_highlight;
+        }
+      }
+      &:nth-child(2) {
+        .game-gui_scores_score_number {
+          background-color: $primary_light;
+        }
+      }
+      &:nth-child(3) {
+        .game-gui_scores_score_number {
+          background-color: $primary_regular;
+        }
+      }
+      &_number {
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        transform: translate(35%, -35%);
+        background-color: $primary_dark;
+        border-radius: 50%;
+        text-align: center;
+        height: max-content;
+        width: max-content;
+        p {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          line-height: 1;
+          font-size: .7rem;
+          padding: .2rem;
+        }
+      }
+      &_drawing {
+        position: absolute;
+        bottom: 0%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        background-color: $primary_background;
+        border-radius: 50%;
+        text-align: center;
+        z-index: 5;
+        height: 1.25rem;
+        width: 1.25rem;
+        color: $primary_dark;
+        font-size: .7rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  &_grid {
+    display: grid;
+    grid-template-columns: .75fr 3.5fr 1fr;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &_timer {
+    &_rounds {
+      line-height: 1;
+      font-size: .8rem;
+      font-weight: 600;
+      color: white;
+    }
+    &_remaining-time {
+      line-height: 1;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $primary_regular;
+    }
+  }
+
+  &_selections {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &_brushs {
+
+    }
+    &_colors {
+      margin-left: 1rem;
+    }
+  }
+  &_canvas {
+    .canvas-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: auto;
+      height: auto;
+      
+      canvas {
+        background-color: white;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  &_chat {
+    height: 100%;
+  }
+
+  &_word {
+    grid-column-start: 2;
+    width: 100%;
+    background-color: $gray;
+    text-align: center;
+    padding: 1rem;
+    span {
+      color: white;
+      font-size: 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,116 @@
+.game-lobby {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  justify-content: center;
+  align-items: center;
+  min-width: 50vw;
+  max-width: 70rem;
+  min-height: 60vh;
+  .settings {
+    max-height: 60vh;
+    height: 100%;
+    background-color: white;
+    padding: 3rem;
+    color: $primary_background;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    &_field {
+      margin-top: 1rem;
+      width: 100%;
+      &_label {
+        font-weight: 700;
+        margin-bottom: .25rem;
+      }
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    .rounds, .draw-time {
+      max-width: 75%;
+      .dropdown {
+        &.disabled {
+          pointer-events: none;
+          .dropdown_label {
+            color: $primary_regular;
+            border-color: $primary_regular;
+          }
+        }
+      }
+    }
+    .invite {
+      max-width: 75%;
+      p {
+        color: $primary_background;
+        transition: .3s;
+        cursor: pointer;
+        width: max-content;
+        i {
+          color: $primary_background;
+          transition: .3s;
+        }
+        &:hover {
+          color: $primary_dark;
+          i {
+            color: $primary_dark;
+          }
+        }
+        &:focus {
+          -webkit-animation: pulse .25s ease-out;
+          animation: pulse .25s ease-out;
+        }
+        &:active {
+          -webkit-animation: none;
+          animation: none;
+        }
+      }
+      &_input {
+        width: 100%;
+        input {
+          width: 100%;
+          padding: .5rem;
+          border-radius: .25rem;
+          outline: none;
+          border: 1px solid $primary_background;
+          transition: .3s;
+          &:focus, &:active {
+            border: 1px solid $primary_dark;
+          }
+        }
+      }
+    }
+    .start {
+      .btn {
+        padding: .5rem 1rem;
+        outline: none;
+        border: none;
+        border-radius: .25rem;
+        background-color: $primary_background;
+        font-size: 1rem;
+        font-weight: 600;
+        color: white;
+        cursor: pointer;
+        transition: .3s;
+        &.disabled {
+          background-color: $gray_light;
+          pointer-events: none;
+        }
+        &:hover {
+          background-color: $primary_dark;
+        }
+      }
+    }
+  }
+  .chat {
+    max-height: 60vh;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  15% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}

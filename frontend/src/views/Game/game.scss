@@ -1,0 +1,24 @@
+.game {
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary_background;
+  .loading-in-gui {
+    padding: 1rem;
+    background-color: white;
+    color: $primary_background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .25rem;
+    font-size: 1.1rem;
+    i {
+      margin-left: .5rem;
+    }
+  }
+}

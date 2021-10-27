@@ -1,0 +1,36 @@
+.brush-selector {
+  .sizes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .size {
+      margin-bottom: .25rem;
+      display: block;
+      background-color: white;
+      border-radius: 50%;
+      transition: .3s;
+      cursor: pointer;
+      &:hover, &.selected {
+        background-color: $primary_regular;
+      }
+    }
+  }
+  .tools {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    .tool {
+      margin-bottom: .25rem;
+      color: white;
+      transition: .3s;
+      cursor: pointer;
+      &:hover, &.selected {
+        color: $primary_regular;
+      }
+    }
+  }
+}

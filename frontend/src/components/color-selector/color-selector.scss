@@ -1,0 +1,31 @@
+.color-selector {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  .color {
+    height: 3rem;
+    width: 3rem;
+    transition: .3s;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+    &.selected {
+      border: 2px solid $mute_highlight;
+    }
+    &:before {
+      transition: .3s;
+      content: '';
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      background-color: black;
+    }
+    &:hover {
+      &:before {
+        opacity: .35;
+      }
+    }
+  }
+}
